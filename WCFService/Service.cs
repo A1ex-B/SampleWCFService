@@ -8,14 +8,21 @@ namespace WCFService
 {
     public class Service : IService
     {
-        public Task GetReceiptsAsync(int number)
+        private string _testField;
+
+        public Service(string testField)
         {
-            throw new NotImplementedException();
+            _testField = testField ?? throw new ArgumentNullException(nameof(testField));
         }
 
-        public Task PutReceiptAsync(Receipt receipt)
+        public async Task GetReceiptsAsync(int number)
         {
-            throw new NotImplementedException();
+            ;// throw new NotImplementedException();
+        }
+
+        public async Task PutReceiptAsync(Receipt receipt)
+        {
+            ; // Do something
         }
     }
 }
