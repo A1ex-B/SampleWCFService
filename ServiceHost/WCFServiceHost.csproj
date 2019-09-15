@@ -43,6 +43,7 @@
       <HintPath>..\packages\Autofac.Wcf.4.1.0\lib\net45\Autofac.Integration.Wcf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
@@ -63,6 +64,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DB\DB.csproj">
+      <Project>{3efaa3e1-6425-4f86-a4ac-49901715dc20}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WCFService\WCFService.csproj">
       <Project>{cc16567e-b6d5-4995-9d63-47a129c32d73}</Project>
       <Name>WCFService</Name>

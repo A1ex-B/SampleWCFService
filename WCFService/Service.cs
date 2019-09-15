@@ -3,26 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DB;
 
 namespace WCFService
 {
     public class Service : IService
     {
-        private string _testField;
+        private readonly IReceiptsRepository _receiptsRepository;
 
-        public Service(string testField)
+        public Service(IReceiptsRepository receiptsRepository)
         {
-            _testField = testField ?? throw new ArgumentNullException(nameof(testField));
+            _receiptsRepository = receiptsRepository ?? throw new ArgumentNullException(nameof(receiptsRepository));
         }
 
-        public async Task GetReceiptsAsync(int number)
+        public async Task<Receipt[]> GetReceiptsAsync(int number)
         {
-            ;// throw new NotImplementedException();
+            ReceiptModel[] result;
+            try
+            {
+                Console.WriteLine($"Called {nameof(GetReceiptsAsync)}({number});");
+                result = await _receiptsRepository.GetLastReceipts(number);
+                return result.ConvertToReceiptArray();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Ошибка в методе {nameof(GetReceiptsAsync)}:");
+                Console.WriteLine($"{ex.GetType()}:\n{ex.Message}");
+                return null;
+            }
         }
 
         public async Task PutReceiptAsync(Receipt receipt)
         {
-            ; // Do something
+            try
+            {
+                Console.WriteLine($"Called {nameof(PutReceiptAsync)}(...), receipt:\n{receipt}");
+                var rows = await _receiptsRepository.SaveReceipt(receipt);
+                Console.WriteLine($"Rows affected = {rows}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Ошибка в методе {nameof(PutReceiptAsync)}:");
+                Console.WriteLine($"{ex.GetType()}:\n{ex.Message}");
+            }
         }
     }
 }

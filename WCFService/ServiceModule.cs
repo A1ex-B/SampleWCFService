@@ -9,16 +9,13 @@ namespace WCFService
 {
     public class ServiceModule: Module
     {
-        private readonly string _testField;
-
-        public ServiceModule(string testField)
+        public ServiceModule()
         {
-            _testField = testField ?? throw new ArgumentNullException(nameof(testField));
         }
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<Service>().As<IService>().WithParameter(new NamedParameter("testField", _testField));//.InstancePerDependency();
+            builder.RegisterType<Service>().As<IService>();//.InstancePerDependency();
         }
     }
 }

@@ -4,19 +4,22 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using System.Configuration;
 using Autofac;
 using WCFService;
 using Autofac.Integration.Wcf;
+using DB;
 
 namespace WCFServiceHost
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //Create a URI to serve as the base address
             var builder = new ContainerBuilder();
-            builder.RegisterModule(new ServiceModule("TEST"));
+            builder.RegisterModule(new ServiceModule());
+            builder.RegisterModule(new DBModule(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString));
             using (var container = builder.Build())
             {
                 //AutofacHostFactory.Container = container;

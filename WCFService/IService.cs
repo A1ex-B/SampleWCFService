@@ -13,6 +13,6 @@ namespace WCFService
         [OperationContract()]
         Task PutReceiptAsync(Receipt receipt);
         [OperationContract()]
-        Task GetReceiptsAsync(int number);
+        Task<Receipt[]> GetReceiptsAsync(int number);
     }
 }
