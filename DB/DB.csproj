@@ -62,5 +62,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQLScripts\create_table.sql" />
+    <Content Include="SQLScripts\exec_get_cheques_pack.sql" />
+    <Content Include="SQLScripts\exec_save_cheques.sql" />
+    <Content Include="SQLScripts\get_cheques_pack.sql" />
+    <Content Include="SQLScripts\save_cheques.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
