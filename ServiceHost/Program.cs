@@ -16,10 +16,13 @@ namespace WCFServiceHost
     {
         static void Main()
         {
-            //Create a URI to serve as the base address
             var builder = new ContainerBuilder();
             builder.RegisterModule(new ServiceModule());
-            builder.RegisterModule(new DBModule(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString));
+            builder.RegisterModule(new DBModule(
+                ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString,
+                ConfigurationManager.AppSettings.Get("RepositoryType"),
+                ConfigurationManager.AppSettings.Get("PathFoFake")
+                ));
             using (var container = builder.Build())
             {
                 //AutofacHostFactory.Container = container;
