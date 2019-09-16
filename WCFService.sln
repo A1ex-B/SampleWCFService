@@ -9,15 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceHost", "ServiceHo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{3EFAA3E1-6425-4F86-A4AC-49901715DC20}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLScripts", "SQLScripts", "{0A4DA137-9D45-4E17-981E-2573541FE96E}"
-	ProjectSection(SolutionItems) = preProject
-		..\SQLforWCF\create_table.sql = ..\SQLforWCF\create_table.sql
-		..\SQLforWCF\exec_get_cheques_pack.sql = ..\SQLforWCF\exec_get_cheques_pack.sql
-		..\SQLforWCF\exec_save_cheques.sql = ..\SQLforWCF\exec_save_cheques.sql
-		..\SQLforWCF\get_cheques_pack.sql = ..\SQLforWCF\get_cheques_pack.sql
-		..\SQLforWCF\save_cheques.sql = ..\SQLforWCF\save_cheques.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
